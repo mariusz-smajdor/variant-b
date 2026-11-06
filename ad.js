@@ -14,6 +14,8 @@
   const headlineLines = [...creative.querySelectorAll('[data-role="headline-line"]')];
   const clickTag = window.clickTag || 'https://example.com/landing';
   const previewMode = new URLSearchParams(window.location.search).has('preview');
+  const supportsAnimations = typeof Element !== 'undefined'
+    && typeof Element.prototype.animate === 'function';
   let started = false;
 
   if (clickout) {
@@ -26,7 +28,7 @@
     }
     started = true;
 
-    if (reducedMotion) {
+    if (reducedMotion || !supportsAnimations) {
       showFinalState();
       return;
     }
@@ -46,10 +48,8 @@
     });
   };
 
-  if (reducedMotion) {
-    if (!previewMode) {
-      showFinalState();
-    }
+  if ((reducedMotion && !previewMode) || !supportsAnimations) {
+    showFinalState();
   }
 
   const animate = (element, keyframes, options) => {
