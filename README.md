@@ -57,6 +57,34 @@ This list totals 1,494,524 bytes (1.43 MiB), below the 3 MB limit. The
 `design/layout.png` debug reference and unused `assets/bg-big.jpg` are not
 part of the production package.
 
+## Validation
+
+- Compared the preview against `design/layout.png` with the debug overlay;
+  frame placement, borders, and central publisher area align to the reference.
+- Verified the three cropped backgrounds retain their required dimensions and
+  preserve the intended continuous surface across the fireplace layout.
+- Verified 2x artwork renders at 50%: `2064 x 500` becomes `1032 x 250`,
+  `640 x 1950` becomes `320 x 975`, and the CTA renders at `172.5 x 46.5`.
+- Verified clean standalone opens for `top.html`, `left.html`, and
+  `right.html`, including animation timelines and final post-intro motion.
+- Verified preview iframes load with `?preview=1` and start through the
+  `start-fireplace` message.
+- Verified reduced-motion mode and the missing-Web-Animations-API fallback
+  show the final state with no active animations.
+- Verified a test `window.clickTag` opens through a full-size `_blank` link
+  with `noopener`; the clickout remains available in reduced-motion mode.
+- Verified preview scaling at a smaller viewport and confirmed the measured
+  production payload remains below 3 MB.
+
+## Next steps with more time
+
+- Validate the creatives in the publisher's final ad-serving environment with
+  its real click-tag injection and browser support matrix.
+- Run a production performance profile on representative average-laptop
+  hardware and compare decoded image memory usage.
+- Resolve the supplied headline artwork mismatch if an updated approved asset
+  becomes available.
+
 ## AI note
 
 The preview was initially built with a `1680 x 1225` stage, which did not
