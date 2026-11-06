@@ -41,6 +41,10 @@
       background.style.transform = 'none';
     }
 
+    if (copy) {
+      copy.style.transform = 'translate(-2px, -7px)';
+    }
+
     [product, panel, copy, cta, ...headlineLines].forEach((element) => {
       if (element) {
         element.style.opacity = '1';
@@ -83,8 +87,8 @@
     ], { duration: 700, delay: 1600 });
 
     animate(copy, [
-      { opacity: 0, transform: 'translateY(16px)' },
-      { opacity: 1, transform: 'translateY(0)' }
+      { opacity: 0, transform: 'translate(-2px, 9px)' },
+      { opacity: 1, transform: 'translate(-2px, -7px)' }
     ], { duration: 800, delay: 1800 });
 
     headlineLines.forEach((line, index) => {
