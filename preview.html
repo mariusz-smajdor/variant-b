@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fireplace preview</title>
+    <style>
+      :root {
+        --stage-width: 1680px;
+        --stage-height: 1225px;
+        --side-width: 320px;
+        --top-width: 1032px;
+        --top-height: 250px;
+        --gap: 4px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+        background: #202020;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+      }
+
+      .preview {
+        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--stage-width);
+        height: var(--stage-height);
+        transform-origin: center center;
+        background: #202020;
+      }
+
+      .preview__frame {
+        position: absolute;
+        overflow: hidden;
+        margin: 0;
+        border: 0;
+        display: block;
+        background: #202020;
+      }
+
+      .preview__frame--left {
+        top: 0;
+        left: 0;
+        width: var(--side-width);
+        height: var(--stage-height);
+      }
+
+      .preview__frame--top {
+        top: 0;
+        left: calc(var(--side-width) + var(--gap));
+        width: var(--top-width);
+        height: var(--top-height);
+      }
+
+      .preview__frame--right {
+        top: 0;
+        right: 0;
+        width: var(--side-width);
+        height: var(--stage-height);
+      }
+
+      .preview__website {
+        position: absolute;
+        top: calc(var(--top-height) + var(--gap));
+        left: calc(var(--side-width) + var(--gap));
+        width: var(--top-width);
+        height: calc(var(--stage-height) - var(--top-height) - var(--gap));
+        background: #202020;
+      }
+
+      @media (max-aspect-ratio: 1680 / 1225) {
+        .preview {
+          transform: translate(-50%, -50%) scale(calc(100vw / var(--stage-width)));
+        }
+      }
+
+      @media (min-aspect-ratio: 1680 / 1225) {
+        .preview {
+          transform: translate(-50%, -50%) scale(calc(100vh / var(--stage-height)));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="preview" aria-label="Fireplace ad preview">
+      <iframe class="preview__frame preview__frame--left" src="left.html" title="Fireplace left"></iframe>
+      <iframe class="preview__frame preview__frame--top" src="top.html" title="Fireplace top"></iframe>
+      <div class="preview__website" aria-label="Publisher website placeholder"></div>
+      <iframe class="preview__frame preview__frame--right" src="right.html" title="Fireplace right"></iframe>
+    </main>
+  </body>
+</html>
