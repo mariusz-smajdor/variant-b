@@ -8,11 +8,13 @@
   </head>
   <body>
     <main class="creative creative--side" aria-label="Fireplace left skyscraper">
-      <img class="creative__layer" src="assets/left/bg.jpg" width="640" height="1950" alt="">
-      <img class="creative__layer" src="assets/left/logo.png" width="640" height="1950" alt="Product pack">
-      <img class="creative__layer creative__layer--matte creative__layer--panel" src="assets/box.png" width="640" height="1950" alt="">
-      <img class="creative__layer creative__layer--matte" src="assets/left/hl.png" width="640" height="1950" alt="Beruhigt effektiv bei trockenem Reizhusten.">
-      <img class="creative__cta creative__cta--left" src="assets/cta.png" width="345" height="93" alt="Jetzt entdecken">
+      <img class="creative__layer creative__layer--background" data-role="background" src="assets/left/bg.jpg" width="640" height="1950" alt="">
+      <img class="creative__layer creative__layer--content" data-role="product" src="assets/left/logo.png" width="640" height="1950" alt="Product pack">
+      <img class="creative__layer creative__layer--matte creative__layer--panel creative__layer--content" data-role="panel" src="assets/box.png" width="640" height="1950" alt="">
+      <img class="creative__layer creative__layer--matte creative__layer--content" data-role="copy" src="assets/left/hl.png" width="640" height="1950" alt="Beruhigt effektiv bei trockenem Reizhusten.">
+      <img class="creative__cta creative__cta--left" data-role="cta" src="assets/cta.png" width="345" height="93" alt="Jetzt entdecken">
+      <a class="creative__clickout" data-role="clickout" href="https://example.com/landing" target="_blank" rel="noopener" aria-label="Mehr erfahren"></a>
     </main>
+    <script src="ad.js"></script>
   </body>
 </html>
